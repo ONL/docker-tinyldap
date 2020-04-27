@@ -22,9 +22,13 @@ RUN make && make install
 
 WORKDIR /root/libowfat
 RUN make && make install
+RUN cp /opt/diet/lib/* /usr/lib/ \
+    && cp /opt/diet/lib-x86_64/* /usr/lib/
 
 WORKDIR /root/tinyldap
 RUN make && make install
+
+RUN cp acl addindex asn1dump dumpacls dumpidx idx2ldif ldapclient ldapclient_str ldapdelete md5password mysql2ldif parse t1 t2 tinyldap tinyldap_standalone x /opt/diet/bin/
 
 RUN wget -O /root/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_x86_64 && chmod 0555 /root/dumb-init
 
@@ -33,4 +37,4 @@ COPY --from=builder /opt/diet/bin/ /opt/
 COPY --from=builder /root/dumb-init /opt/dumb-init
 
 ENTRYPOINT ["/opt/dumb-init", "--"]
-CMD ["/opt/tinyldap"]
+CMD ["/opt/tinyldap_standlone"]
