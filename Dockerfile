@@ -26,7 +26,7 @@ RUN cp /opt/diet/lib/* /usr/lib/ \
     && cp /opt/diet/lib-x86_64/* /usr/lib/
 
 WORKDIR /root/tinyldap
-RUN make && make install
+RUN make
 
 RUN cp acl addindex asn1dump dumpacls dumpidx idx2ldif ldapclient ldapclient_str ldapdelete md5password mysql2ldif parse t1 t2 tinyldap tinyldap_standalone x /opt/diet/bin/
 
