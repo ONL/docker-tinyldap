@@ -36,5 +36,7 @@ FROM alpine
 COPY --from=builder /opt/diet/bin/ /opt/
 COPY --from=builder /root/dumb-init /opt/dumb-init
 
+WORKDIR /opt
+
 ENTRYPOINT ["/opt/dumb-init", "--"]
 CMD ["/opt/tinyldap_standalone"]
