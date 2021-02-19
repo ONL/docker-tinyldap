@@ -30,7 +30,7 @@ RUN make
 
 RUN cp acl addindex asn1dump dumpacls dumpidx idx2ldif ldapclient ldapclient_str ldapdelete md5password mysql2ldif parse t1 t2 tinyldap tinyldap_standalone x /opt/diet/bin/
 
-RUN wget -O /root/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_x86_64 && chmod 0555 /root/dumb-init
+RUN wget -O /root/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && chmod 0555 /root/dumb-init
 
 FROM alpine
 COPY --from=builder /opt/diet/bin/ /opt/
